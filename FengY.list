@@ -1,0 +1,8 @@
+##### 丰云行
+DOMAIN-SUFFIX,carapptest.gtmc.com.cn,reject
+DOMAIN-SUFFIX,carappvideo.gtmc.com.cn,reject
+DOMAIN-SUFFIX,*.carapp.gtmc.com.cn,reject
+DOMAIN-SUFFIX,api.ximalaya.com,reject
+DOMAIN-SUFFIX,open.youzanyun.com,reject
+DOMAIN-SUFFIX,api.ximalaya.comn,reject
+DOMAIN-SUFFIX,*.xunkids.com,reject
