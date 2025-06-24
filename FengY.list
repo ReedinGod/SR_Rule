@@ -5,3 +5,5 @@ HOST-SUFFIX,sa.carapp.gtmc.com.cn,reject
 HOST-SUFFIX,api.ximalaya.com,reject
 HOST-SUFFIX,open.youzanyun.com,reject
 HOST-SUFFIX,api.ximalaya.comn,reject
+HOST-SUFFIX,cms.gtmc.com.cn,reject
+HOST-SUFFIX,gz-43e866.kaiqsz.com,reject
