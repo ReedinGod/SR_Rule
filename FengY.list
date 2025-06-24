@@ -1,7 +1,7 @@
 ##### 丰云行
 HOST-SUFFIX,carapptest.gtmc.com.cn,reject
 HOST-SUFFIX,carappvideo.gtmc.com.cn,reject
-HOST-SUFFIX,*.carapp.gtmc.com.cn,reject
+HOST-SUFFIX,sa.carapp.gtmc.com.cn,reject
 HOST-SUFFIX,api.ximalaya.com,reject
 HOST-SUFFIX,open.youzanyun.com,reject
 HOST-SUFFIX,api.ximalaya.comn,reject
