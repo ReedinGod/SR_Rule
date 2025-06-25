@@ -1,6 +1,4 @@
 # >> Emby (Proxy)
-# 解锁 Emby Premiere 功能
-DOMAIN, mb3admin.com
 # 如果你的服务器需要代理访问 (将 example.com 替换为你的服务器域名)
 DOMAIN, hongxingyunmovie.vip
 # 其他 Emby 官方服务，通常可直连，如有问题再改为代理
