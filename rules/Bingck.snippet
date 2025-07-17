@@ -15,7 +15,14 @@
 
 
 # 去重后的hostname，将对以下域名进行MITM（MAN-IN-THE-MIDDLE：中间人攻击）
-hostname = rewards.bing.com
+hostname = rewards.bing.com, auth.alipan.com, auth.aliyundrive.com
+
+
+# > 阿里云盘任务
+# hostname = auth.alipan.com, auth.aliyundrive.com
+^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token url script-request-body https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js
+# 阿里云盘签到cookie
+^https:\/\/auth.aliyundrive.com\/v2\/account\/token url script-response-body https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
 
 # >>>>>>>>>>>>>>> ✅ B ✅ <<<<<<<<<<<<<<
 # > bing获取积分cookie
