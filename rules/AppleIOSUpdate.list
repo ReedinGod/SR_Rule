@@ -1,0 +1,16 @@
+# Block iOS Update
+DOMAIN,mesu.apple.com,AppleIOSUpdate
+DOMAIN,gdmf.apple.com,AppleIOSUpdate
+DOMAIN,updates-http.cdn-apple.com,AppleIOSUpdate
+DOMAIN,xp.apple.com,AppleIOSUpdate
+# Block MacOS Update
+DOMAIN,swscan.apple.com,MacOSUpdate
+DOMAIN,swdist.apple.com,MacOSUpdate
+DOMAIN,swdownload.apple.com,MacOSUpdate
+DOMAIN,swcdn.apple.com,MacOSUpdate
+DOMAIN,updates-http.cdn-apple.com,MacOSUpdate
+DOMAIN,updates.cdn-apple.com,MacOSUpdate
+DOMAIN,xp.apple.com,MacOSUpdate
+DOMAIN,gdmf.apple.com,MacOSUpdate
+DOMAIN,mesu.apple.com,MacOSUpdate
+DOMAIN,appldnld.apple.com,MacOSUpdate
