@@ -3,3 +3,4 @@
 HOST, hongxingyunmovie.vip, emby
 # 其他 Emby 官方服务，通常可直连，如有问题再改为代理
 HOST-SUFFIX, emby.media, emby
+HOST-SUFFIX, greasyfork.org, emby
