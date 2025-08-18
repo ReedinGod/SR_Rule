@@ -67,59 +67,93 @@ if(resStatus !== 200) {
                 commonApi.msg(notifyName, '$argument解析失败', $argument);
             }
         }
-        const {appid, securityKey} = options;
-        //console.log(`appid:${appid},securityKey:${securityKey}`);
-
-        const query = colorLyricsResponseObj.lyrics.lines
-            .map(x => x.words)
-            .filter(words => words && words !== '♪')
-            .filter((v, i, a) => a.indexOf(v) === i)
-            .join('\n');
-        const salt = Date.now();
-        const queryObj = {
-            q: query,
-            from: 'auto',
-            to: 'zh',
-            appid,
-            salt,
-            sign: md5(appid + query + salt + securityKey)
+        //Gemini给的修改部分
+        const { apiKey } = options;
+        if (!apiKey) {
+            commonApi.msg(notifyName, '配置错误', '未填写硅基流动 API Key');
+            return $done({});
         }
-        const requestBody = Object.entries(queryObj)
-            .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
-            .join('&');
 
-        // 调用翻译
-        commonApi.post({
-            url: "https://fanyi-api.baidu.com/api/trans/vip/translate",
-            body: requestBody,
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            },
+        // 提取所有不重复的歌词行
+        const uniqueLines = [
+          ...new Set(
+            colorLyricsResponseObj.lyrics.lines
+              .map(x => x.words)
+              .filter(words => words && words !== '♪')
+          ),
+        ];
+
+        if (uniqueLines.length === 0) {
+            return $done({}); // 没有需要翻译的歌词
+        }
+
+        // 构建 LLM 的 Prompt
+        const prompt = `Translate the following song lyrics into Chinese. Retain the original line breaks. Provide only the translated text, with each line corresponding to the original. Do not add any extra explanations or text.
+
+Original Lyrics:
+${uniqueLines.join('\n')}
+
+Translated Lyrics:`;
+
+        // 构建请求体
+        const requestBody = JSON.stringify({
+            model: "Qwen/Qwen2-7B-Instruct", // 可以选择其他合适的模型
+            messages: [{
+                role: "user",
+                content: prompt
+            }],
+            stream: false,
+            max_tokens: 1024,
+            temperature: 0.1 // 翻译任务设置较低的温度
+        });
+
+        // 调用翻译
+        commonApi.post({
+            url: "https://api.siliconflow.cn/v1/chat/completions",
+            body: requestBody,
+            headers: {
+              'Authorization': `Bearer ${apiKey}`,
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },  
+        // gemin修改完成
         }, (error, response, data) => {
             if(error){
-                commonApi.msg(notifyName, '百度翻译', `error错误${error}`);
+                commonApi.msg(notifyName, '硅基翻译', `error错误${error}`);
                 $done({});
             } else if(response.status !== 200){
-                commonApi.msg(notifyName, '百度翻译', `响应不为200:${response.status}`);
+                commonApi.msg(notifyName, '硅基翻译', `响应不为200:${response.status}`);
                 $done({});
             } else {
-                const baiduResult = JSON.parse(data);
-                if(baiduResult.error_code && baiduResult.error_code !== '52000'){
-                    if (baiduResult.error_code === '54003') {
-                        console.log(`访问频率受限:${data}`);
-                        // commonApi.msg(notifyName, '百度翻译', `访问频率受限:${data}`);
-                    } else if (baiduResult.error_code === '52003') {
-                        commonApi.msg(notifyName, '百度翻译', `未授权用户,请检查appid和密钥配置:${data}`);
-                    } else {
-                        commonApi.msg(notifyName, '百度翻译', `其他错误:${data}`);
-                    }
-                    $done({});
-                } else {
-                    console.log('翻译成功');
-                    // 因为采用了批量翻译,如果歌词为多种语言,只会翻译其中的一种语言
-                    const transArr = baiduResult.trans_result.filter(trans => trans.src !== trans.dst)
-                        .map(trans => [trans.src, trans.dst]);
-                    const transMap = new Map(transArr);
+                const sfResult = JSON.parse(data);
+                // 检查 API 是否返回错误
+                if (sfResult.error) {
+                    commonApi.msg(notifyName, '硅基流动翻译失败', `错误: ${sfResult.error.message}`);
+                    return $done({});
+                }
+
+                if (!sfResult.choices || sfResult.choices.length === 0) {
+                    commonApi.msg(notifyName, '硅基流动翻译失败', 'API 未返回有效的翻译结果');
+                    return $done({});
+                }
+
+                console.log('翻译成功');
+                const translatedText = sfResult.choices[0].message.content;
+                const translatedLines = translatedText.split('\n');
+
+                // 确保原始歌词和翻译结果行数一致
+                if (uniqueLines.length !== translatedLines.length) {
+                    console.log(`警告: 翻译前后行数不匹配。原文 ${uniqueLines.length} 行, 译文 ${translatedLines.length} 行。可能导致错位。`);
+                }
+
+                
+
+                    // 创建原文到译文的映射
+                    const transMap = new Map();
+                    for (let i = 0; i < uniqueLines.length; i++) {
+                        // 如果译文行数少于原文，用原文填充
+                        transMap.set(uniqueLines[i], translatedLines[i] || uniqueLines[i]);
+                }
                     colorLyricsResponseObj.lyrics.alternatives = [{
                         "language" : "z1",
                         "lines" : colorLyricsResponseObj.lyrics.lines.map(line => line.words)
