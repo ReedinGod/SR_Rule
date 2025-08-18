@@ -1,3 +1,33 @@
+/*
+Spotify非中文歌词翻译 Surge和Loon需要>=iOS15 (仓库地址: https://github.com/app2smile/rules)
+采用硅基流动接口进行翻译,需要先免费申请API Key,然后根据不同软件进行不同配置
+
+-----------申请硅基流动API Key--------------
+1. 访问官网并注册: https://siliconflow.cn/
+2. 登录后,在 "账户设置" -> "API密钥" 页面创建一个新的密钥.
+
+------------软件配置(在文本模式下,填入下方内容)--------------
+如果软件已经加载过Spotify解锁脚本(https://github.com/app2smile/rules#spotify),可不配置MITM域名
+
+1.Surge:
+[MITM]
+hostname = %APPEND% spclient.wg.spotify.com
+[Script]
+# 修改下方argument中的apiKey, 填入你自己的密钥
+spotify歌词翻译 = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric-siliconflow.js,argument=apiKey=sk-xxxxxxxxxxxxxxxxxxxxxxxx
+
+2.Loon:
+[Mitm]
+hostname = spclient.wg.spotify.com
+[Script]
+# 修改下方argument中的apiKey, 填入你自己的密钥
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric-siliconflow.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Spotify歌词翻译, argument=apiKey=sk-xxxxxxxxxxxxxxxxxxxxxxxx
+
+3.qx:
+    - 自行配置MITM域名: spclient.wg.spotify.com
+    - 手动修改下方的 apiKey 常量, 填入你自己的密钥, 并配置重写,类型为script-response-body,
+      正则填入^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/
+*/
 // 注意: QX用户需要手动修改下面的apiKey, Surge和Loon用户无需修改!!!!
 const options = {
     apiKey: 'sk-zsooyiczhuuezogpqthqssmjwuqfytnfmcpjubitnftybhgz' // QX用户在此处填入你的 "sk-" 开头的API Key
