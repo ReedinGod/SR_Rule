@@ -36,7 +36,7 @@ const isQX = typeof $response !== 'undefined' && typeof $httpClient !== 'undefin
 // 检查响应体
 if (!$response || !$response.body) {
     console.log('错误：未找到 $response 或 $response.body');
-    commonApi.msg(notifyName, '脚本错误', '未找到响应体');
+    $notify(notifyName, '脚本错误', '未找到响应体');
     $done({});
 }
 
@@ -49,14 +49,14 @@ try {
     console.log('解析后的 colorLyricsResponseObj：', JSON.stringify(colorLyricsResponseObj));
 } catch (error) {
     console.log('解析 colorLyricsResponseObj 失败：', error.message);
-    commonApi.msg(notifyName, '解析错误', `无法解析响应体: ${error.message}`);
+    $notify(notifyName, '解析错误', `无法解析响应体: ${error.message}`);
     $done({});
 }
 
 // 检查 lyrics.lines
 if (!colorLyricsResponseObj?.lyrics?.lines?.length) {
     console.log('歌词为空，跳过翻译');
-    commonApi.msg(notifyName, '歌词为空', '响应数据缺少有效歌词');
+    $notify(notifyName, '歌词为空', '响应数据缺少有效歌词');
     $done({ body: $response.body });
 }
 
@@ -65,6 +65,8 @@ const options = {
     model: 'Qwen/Qwen2.5-7B-Instruct',
     baseUrl: 'https://api.siliconflow.cn/v1',
 };
+
+// 解析 $argument
 if (typeof $argument !== 'undefined') {
     console.log(`$argument: ${$argument}`);
     try {
@@ -72,13 +74,13 @@ if (typeof $argument !== 'undefined') {
         Object.assign(options, params);
     } catch (error) {
         console.log(`解析 $argument 失败: ${error.message}`);
-        commonApi.msg(notifyName, '配置错误', `解析 $argument 失败: ${error.message}`);
+        $notify(notifyName, '配置错误', `解析 $argument 失败: ${error.message}`);
         $done({});
     }
 }
 if (!options.apiKey || !options.model) {
     console.log('缺少 apiKey 或 model 配置');
-    commonApi.msg(notifyName, '配置错误', '缺少 apiKey 或 model 配置');
+    $notify(notifyName, '配置错误', '缺少 apiKey 或 model 配置');
     $done({});
 }
 
@@ -89,7 +91,7 @@ const query = colorLyricsResponseObj.lyrics.lines
     .join('\n');
 if (!query) {
     console.log('歌词内容为空，不翻译');
-    commonApi.msg(notifyName, '歌词为空', '歌词内容为空，不翻译');
+    $notify(notifyName, '歌词为空', '歌词内容为空，不翻译');
     $done({});
 }
 
@@ -120,11 +122,11 @@ commonApi.post({
     console.log(`API Request: url=${options.baseUrl}/chat/completions, body=${requestBody}`);
     if (error) {
         console.log(`API Error: ${JSON.stringify(error)}`);
-        commonApi.msg(notifyName, '硅基流动翻译', `请求错误: ${error.message || error}`);
+        $notify(notifyName, '硅基流动翻译', `请求错误: ${error.message || error}`);
         $done({});
     } else if (response.status !== 200) {
         console.log(`API Status: ${response.status}, Response: ${data}`);
-        commonApi.msg(notifyName, '硅基流动翻译', `响应不为200: ${response.status}`);
+        $notify(notifyName, '硅基流动翻译', `响应不为200: ${response.status}`);
         $done({});
     } else {
         try {
@@ -132,14 +134,14 @@ commonApi.post({
             const siliconResult = JSON.parse(data);
             if (siliconResult.error) {
                 console.log(`API Error Response: ${JSON.stringify(siliconResult.error)}`);
-                commonApi.msg(notifyName, '硅基流动翻译', `API错误: ${siliconResult.error.message}`);
+                $notify(notifyName, '硅基流动翻译', `API错误: ${siliconResult.error.message}`);
                 $done({});
             }
             console.log('翻译成功');
             const translatedText = siliconResult.choices?.[0]?.message?.content;
             if (!translatedText) {
                 console.log('翻译结果为空');
-                commonApi.msg(notifyName, '硅基流动翻译', '翻译结果为空');
+                $notify(notifyName, '硅基流动翻译', '翻译结果为空');
                 $done({});
             }
             const transLines = translatedText.split('\n');
@@ -149,7 +151,7 @@ commonApi.post({
                 .filter((v, i, a) => a.indexOf(v) === i);
             if (transLines.length < srcLines.length) {
                 console.log(`翻译结果行数不足: expected ${srcLines.length}, got ${transLines.length}`);
-                commonApi.msg(notifyName, '硅基流动翻译', '翻译结果行数不足');
+                $notify(notifyName, '硅基流动翻译', '翻译结果行数不足');
                 $done({});
             }
             const transMap = new Map(srcLines.map((src, i) => [src, transLines[i] || src]));
@@ -166,7 +168,7 @@ commonApi.post({
             }
         } catch (parseError) {
             console.log(`解析响应失败: ${parseError.message}`);
-            commonApi.msg(notifyName, '硅基流动翻译', `解析响应失败: ${parseError.message}`);
+            $notify(notifyName, '硅基流动翻译', `解析响应失败: ${parseError.message}`);
             $done({});
         }
     }
