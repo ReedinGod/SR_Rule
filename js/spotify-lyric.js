@@ -30,6 +30,36 @@ http-response ^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ s
 */
 // 注意: QX用户需要手动填入appid和securityKey密钥, Surge和Loon用户无需填入!!!!
 // === 修改部分开始 ===
+const notifyName = 'Spotify 歌词翻译';
+const isQX = typeof $response !== 'undefined' && typeof $httpClient !== 'undefined';
+
+// 检查响应体
+if (!$response || !$response.body) {
+    console.log('错误：未找到 $response 或 $response.body');
+    commonApi.msg(notifyName, '脚本错误', '未找到响应体');
+    $done({});
+}
+
+// 解析二进制响应
+let colorLyricsResponseObj;
+try {
+    console.log('原始响应体长度：', $response.body.length);
+    // 假设 ColorLyricsResponse 是外部定义的解析函数
+    colorLyricsResponseObj = ColorLyricsResponse.fromBinary($response.body);
+    console.log('解析后的 colorLyricsResponseObj：', JSON.stringify(colorLyricsResponseObj));
+} catch (error) {
+    console.log('解析 colorLyricsResponseObj 失败：', error.message);
+    commonApi.msg(notifyName, '解析错误', `无法解析响应体: ${error.message}`);
+    $done({});
+}
+
+// 检查 lyrics.lines
+if (!colorLyricsResponseObj?.lyrics?.lines?.length) {
+    console.log('歌词为空，跳过翻译');
+    commonApi.msg(notifyName, '歌词为空', '响应数据缺少有效歌词');
+    $done({ body: $response.body });
+}
+
 const options = {
     apiKey: 'sk-zsooyiczhuuezogpqthqssmjwuqfytnfmcpjubitnftybhgz',
     model: 'Qwen/Qwen2.5-7B-Instruct',
