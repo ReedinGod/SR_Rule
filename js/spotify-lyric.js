@@ -31,7 +31,7 @@ http-response ^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ s
 // 注意: QX用户需要手动填入appid和securityKey密钥, Surge和Loon用户无需填入!!!!
 // === 修改部分开始 ===
 const options = {
-    apiKey: '',
+    apiKey: 'sk-zsooyiczhuuezogpqthqssmjwuqfytnfmcpjubitnftybhgz',
     model: 'Qwen/Qwen2.5-7B-Instruct',
     baseUrl: 'https://api.siliconflow.cn/v1',
 };
