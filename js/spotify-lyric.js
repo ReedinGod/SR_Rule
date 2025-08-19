@@ -73,7 +73,7 @@ if (!colorLyricsResponseObj?.lyrics?.lines?.length) {
 
 // 配置硅基流动 API
 const options = {
-    apiKey: '',
+    apiKey: 'sk-zsooyiczhuuezogpqthqssmjwuqfytnfmcpjubitnftybhgz',
     model: 'Qwen/Qwen2.5-7B-Instruct',
     baseUrl: 'https://api.siliconflow.cn/v1',
 };
