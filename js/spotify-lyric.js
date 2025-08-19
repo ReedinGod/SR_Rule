@@ -33,6 +33,24 @@ http-response ^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ s
 const notifyName = 'Spotify 歌词翻译';
 const isQX = typeof $response !== 'undefined' && typeof $httpClient !== 'undefined';
 
+// 定义 Protobuf 消息结构
+const ColorLyricsResponse = new MessageType('ColorLyricsResponse', [
+    { no: 1, name: 'lyrics', kind: 'message', T: () => Lyrics }
+]);
+const Lyrics = new MessageType('Lyrics', [
+    { no: 1, name: 'lines', kind: 'message', repeat: RepeatType.UNPACKED, T: () => Line },
+    { no: 2, name: 'alternatives', kind: 'message', repeat: RepeatType.UNPACKED, T: () => Alternative }
+]);
+const Line = new MessageType('Line', [
+    { no: 1, name: 'words', kind: 'scalar', T: ScalarType.STRING },
+    { no: 2, name: 'start_time_ms', kind: 'scalar', T: ScalarType.INT64, L: LongType.STRING },
+    { no: 3, name: 'end_time_ms', kind: 'scalar', T: ScalarType.INT64, L: LongType.STRING }
+]);
+const Alternative = new MessageType('Alternative', [
+    { no: 1, name: 'language', kind: 'scalar', T: ScalarType.STRING },
+    { no: 2, name: 'lines', kind: 'scalar', repeat: RepeatType.UNPACKED, T: ScalarType.STRING }
+]);
+
 // 检查响应体
 if (!$response || !$response.body) {
     console.log('错误：未找到 $response 或 $response.body');
