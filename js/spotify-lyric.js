@@ -68,8 +68,11 @@ if ($response.body.length === 0) {
 // 解析二进制响应
 let colorLyricsResponseObj;
 try {
+    console.log('响应体类型：', Object.prototype.toString.call($response.body));
     console.log('原始响应体长度：', $response.body.length);
     console.log('原始响应体前100字节（Base64）：', Buffer.from($response.body).toString('base64').slice(0, 100));
+    // 确保 $response.body 是 Uint8Array
+    const binaryBody = $response.body instanceof ArrayBuffer ? new Uint8Array($response.body) : $response.body
     colorLyricsResponseObj = ColorLyricsResponse.fromBinary($response.body);
     console.log('解析后的 colorLyricsResponseObj：', JSON.stringify(colorLyricsResponseObj, null, 2));
 } catch (error) {
@@ -189,7 +192,7 @@ $httpClient.post({
             }
             const transMap = new Map(srcLines.map((src, i) => [src, transLines[i] || src]));
             colorLyricsResponseObj.lyrics.alternatives = [{
-                "language": "z1",
+                "language": "zh",
                 "lines": colorLyricsResponseObj.lyrics.lines.map(line => line.words)
                     .map(word => transMap.get(word) || word || '')
             }];
