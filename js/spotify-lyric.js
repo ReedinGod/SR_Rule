@@ -30,10 +30,309 @@ http-response ^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/ s
 */
 // 注意: QX用户需要手动填入appid和securityKey密钥, Surge和Loon用户无需填入!!!!
 // 脚本名称：spotify-lyric.js
-const notifyName = 'Spotify 歌词翻译';
-const isQX = typeof $response !== 'undefined' && typeof $httpClient !== 'undefined';
+// 脚本名称：spotify-lyric.js
+// 功能：拦截 Spotify 歌词 API 响应，翻译歌词为中文，使用硅基流动 API
 
-// 定义 Protobuf 消息结构
+// protobuf-ts 核心实现（精简版，仅包含必要部分）
+const MESSAGE_TYPE = Symbol.for("protobuf-ts/message-type");
+const ScalarType = {
+    STRING: 9,
+    INT64: 3,
+};
+const LongType = {
+    STRING: 1,
+};
+const RepeatType = {
+    UNPACKED: 2,
+};
+
+class PbLong {
+    constructor(lo, hi) {
+        this.lo = lo | 0;
+        this.hi = hi | 0;
+    }
+    static from(value) {
+        if (typeof value === "string" && /^[0-9]+$/.test(value)) {
+            return new PbLong(parseInt(value, 10), 0);
+        }
+        if (typeof value === "number" && Number.isSafeInteger(value)) {
+            return new PbLong(value, value < 0 ? -1 : 0);
+        }
+        throw new Error("Unsupported value for PbLong: " + typeof value);
+    }
+    toString() {
+        return this.lo.toString();
+    }
+}
+
+class BinaryReader {
+    constructor(buf) {
+        this.buf = buf instanceof ArrayBuffer ? new Uint8Array(buf) : buf;
+        this.len = this.buf.length;
+        this.pos = 0;
+        this.view = new DataView(this.buf.buffer, this.buf.byteOffset, this.buf.byteLength);
+    }
+    tag() {
+        const tag = this.uint32();
+        return [tag >>> 3, tag & 7];
+    }
+    skip(wireType) {
+        const start = this.pos;
+        switch (wireType) {
+            case 0: // Varint
+                while (this.buf[this.pos++] & 0x80);
+                break;
+            case 2: // LengthDelimited
+                this.pos += this.uint32();
+                break;
+            default:
+                throw new Error("Unsupported wire type: " + wireType);
+        }
+        return this.buf.subarray(start, this.pos);
+    }
+    uint32() {
+        let value = 0, shift = 0;
+        while (true) {
+            if (this.pos >= this.len) throw new RangeError("Premature EOF");
+            const byte = this.buf[this.pos++];
+            value |= (byte & 0x7F) << shift;
+            if (!(byte & 0x80)) break;
+            shift += 7;
+        }
+        return value >>> 0;
+    }
+    int64() {
+        return PbLong.from(this.uint32());
+    }
+    string() {
+        const length = this.uint32();
+        const start = this.pos;
+        this.pos += length;
+        return new TextDecoder().decode(this.buf.subarray(start, start + length));
+    }
+    bytes() {
+        const length = this.uint32();
+        const start = this.pos;
+        this.pos += length;
+        return this.buf.subarray(start, start + length);
+    }
+}
+
+class BinaryWriter {
+    constructor() {
+        this.chunks = [];
+        this.buf = [];
+    }
+    finish() {
+        this.chunks.push(new Uint8Array(this.buf));
+        let totalLength = 0;
+        for (let chunk of this.chunks) totalLength += chunk.length;
+        const result = new Uint8Array(totalLength);
+        let offset = 0;
+        for (let chunk of this.chunks) {
+            result.set(chunk, offset);
+            offset += chunk.length;
+        }
+        this.chunks = [];
+        this.buf = [];
+        return result;
+    }
+    fork() {
+        this.chunks.push(new Uint8Array(this.buf));
+        this.buf = [];
+        return this;
+    }
+    join() {
+        const chunk = this.finish();
+        this.chunks.pop();
+        this.chunks.push(chunk);
+        return this;
+    }
+    tag(fieldNo, wireType) {
+        return this.uint32((fieldNo << 3) | wireType);
+    }
+    uint32(value) {
+        while (value > 127) {
+            this.buf.push((value & 127) | 128);
+            value >>>= 7;
+        }
+        this.buf.push(value);
+        return this;
+    }
+    string(value) {
+        const encoded = new TextEncoder().encode(value);
+        return this.uint32(encoded.length).raw(encoded);
+    }
+    bytes(value) {
+        return this.uint32(value.length).raw(value);
+    }
+    raw(data) {
+        this.buf.push(...data);
+        return this;
+    }
+}
+
+class MessageType {
+    constructor(typeName, fields) {
+        this.typeName = typeName;
+        this.fields = fields.map(field => ({
+            ...field,
+            localName: field.name,
+            jsonName: field.name,
+            repeat: field.repeat || 0,
+            opt: field.opt || false
+        }));
+        this.refBinReader = new ReflectionBinaryReader(this);
+        this.refBinWriter = new ReflectionBinaryWriter(this);
+    }
+    create() {
+        const obj = { [MESSAGE_TYPE]: this };
+        for (let field of this.fields) {
+            if (field.repeat) obj[field.localName] = [];
+            else if (!field.opt) obj[field.localName] = field.kind === "scalar" ? "" : 0;
+        }
+        return obj;
+    }
+    fromBinary(data) {
+        return this.internalBinaryRead(new BinaryReader(data), data.length, {});
+    }
+    toBinary(message) {
+        return this.internalBinaryWrite(message, new BinaryWriter(), {}).finish();
+    }
+    internalBinaryRead(reader, length, options, target = this.create()) {
+        const end = reader.pos + length;
+        while (reader.pos < end) {
+            const [fieldNo, wireType] = reader.tag();
+            const field = this.fields.find(f => f.no === fieldNo);
+            if (!field) {
+                reader.skip(wireType);
+                continue;
+            }
+            const localName = field.localName;
+            let value;
+            switch (field.kind) {
+                case "scalar":
+                    value = field.T === ScalarType.STRING ? reader.string() :
+                            field.T === ScalarType.INT64 ? reader.int64().toString() :
+                            reader.bytes();
+                    break;
+                case "message":
+                    value = field.T().internalBinaryRead(reader, reader.uint32(), options);
+                    break;
+            }
+            if (field.repeat) {
+                target[localName].push(value);
+            } else {
+                target[localName] = value;
+            }
+        }
+        return target;
+    }
+    internalBinaryWrite(message, writer, options) {
+        for (const field of this.fields) {
+            const value = message[field.localName];
+            if (value === undefined) continue;
+            const wireType = field.T === ScalarType.STRING || field.T === ScalarType.BYTES ? 2 :
+                            field.T === ScalarType.INT64 ? 0 : 2;
+            if (field.repeat) {
+                for (const item of value) {
+                    writer.tag(field.no, wireType);
+                    if (field.kind === "scalar") {
+                        if (field.T === ScalarType.STRING) writer.string(item);
+                        else if (field.T === ScalarType.INT64) writer.uint32(Number(item));
+                        else writer.bytes(item);
+                    } else {
+                        field.T().internalBinaryWrite(item, writer.fork(), options).join();
+                    }
+                }
+            } else {
+                writer.tag(field.no, wireType);
+                if (field.kind === "scalar") {
+                    if (field.T === ScalarType.STRING) writer.string(value);
+                    else if (field.T === ScalarType.INT64) writer.uint32(Number(value));
+                    else writer.bytes(value);
+                } else {
+                    field.T().internalBinaryWrite(value, writer.fork(), options).join();
+                }
+            }
+        }
+        return writer;
+    }
+}
+
+class ReflectionBinaryReader {
+    constructor(info) {
+        this.info = info;
+        this.fieldNoToField = new Map(info.fields.map(f => [f.no, f]));
+    }
+    read(reader, target, options, length) {
+        const end = length === undefined ? reader.len : reader.pos + length;
+        while (reader.pos < end) {
+            const [fieldNo, wireType] = reader.tag();
+            const field = this.fieldNoToField.get(fieldNo);
+            if (!field) {
+                reader.skip(wireType);
+                continue;
+            }
+            const localName = field.localName;
+            let value;
+            switch (field.kind) {
+                case "scalar":
+                    value = field.T === ScalarType.STRING ? reader.string() :
+                            field.T === ScalarType.INT64 ? reader.int64().toString() :
+                            reader.bytes();
+                    break;
+                case "message":
+                    value = field.T().internalBinaryRead(reader, reader.uint32(), options);
+                    break;
+            }
+            if (field.repeat) {
+                target[localName].push(value);
+            } else {
+                target[localName] = value;
+            }
+        }
+        return target;
+    }
+}
+
+class ReflectionBinaryWriter {
+    constructor(info) {
+        this.info = info;
+    }
+    write(message, writer, options) {
+        for (const field of this.info.fields) {
+            const value = message[field.localName];
+            if (value === undefined) continue;
+            const wireType = field.T === ScalarType.STRING || field.T === ScalarType.BYTES ? 2 :
+                            field.T === ScalarType.INT64 ? 0 : 2;
+            if (field.repeat) {
+                for (const item of value) {
+                    writer.tag(field.no, wireType);
+                    if (field.kind === "scalar") {
+                        if (field.T === ScalarType.STRING) writer.string(item);
+                        else if (field.T === ScalarType.INT64) writer.uint32(Number(item));
+                        else writer.bytes(item);
+                    } else {
+                        field.T().internalBinaryWrite(item, writer.fork(), options).join();
+                    }
+                }
+            } else {
+                writer.tag(field.no, wireType);
+                if (field.kind === "scalar") {
+                    if (field.T === ScalarType.STRING) writer.string(value);
+                    else if (field.T === ScalarType.INT64) writer.uint32(Number(value));
+                    else writer.bytes(value);
+                } else {
+                    field.T().internalBinaryWrite(value, writer.fork(), options).join();
+                }
+            }
+        }
+        return writer;
+    }
+}
+
+// 定义 Spotify 歌词 Protobuf 结构
 const ColorLyricsResponse = new MessageType('ColorLyricsResponse', [
     { no: 1, name: 'lyrics', kind: 'message', T: () => Lyrics }
 ]);
@@ -50,6 +349,10 @@ const Alternative = new MessageType('Alternative', [
     { no: 1, name: 'language', kind: 'scalar', T: ScalarType.STRING },
     { no: 2, name: 'lines', kind: 'scalar', repeat: RepeatType.UNPACKED, T: ScalarType.STRING }
 ]);
+
+// 脚本主逻辑
+const notifyName = 'Spotify 歌词翻译';
+const isQX = typeof $response !== 'undefined' && typeof $httpClient !== 'undefined';
 
 // 检查响应体
 if (!$response || !$response.body) {
@@ -69,11 +372,12 @@ if ($response.body.length === 0) {
 let colorLyricsResponseObj;
 try {
     console.log('响应体类型：', Object.prototype.toString.call($response.body));
-    console.log('原始响应体长度：', $response.body.length);
-    console.log('原始响应体前100字节（Base64）：', Buffer.from($response.body).toString('base64').slice(0, 100));
+    console.log('响应体长度：', $response.body.length);
+    console.log('响应体前100字节（Base64）：', Buffer.from($response.body).toString('base64').slice(0, 100));
+    
     // 确保 $response.body 是 Uint8Array
-    const binaryBody = $response.body instanceof ArrayBuffer ? new Uint8Array($response.body) : $response.body
-    colorLyricsResponseObj = ColorLyricsResponse.fromBinary($response.body);
+    const binaryBody = $response.body instanceof ArrayBuffer ? new Uint8Array($response.body) : $response.body;
+    colorLyricsResponseObj = ColorLyricsResponse.fromBinary(binaryBody);
     console.log('解析后的 colorLyricsResponseObj：', JSON.stringify(colorLyricsResponseObj, null, 2));
 } catch (error) {
     console.log('解析 colorLyricsResponseObj 失败：', {
@@ -129,7 +433,7 @@ if (!query) {
     $done({ body: $response.body });
 }
 
-// 构造翻译请求
+// 构造硅基流动 API 请求
 const requestBody = JSON.stringify({
     model: options.model,
     messages: [
@@ -192,8 +496,8 @@ $httpClient.post({
             }
             const transMap = new Map(srcLines.map((src, i) => [src, transLines[i] || src]));
             colorLyricsResponseObj.lyrics.alternatives = [{
-                "language": "zh",
-                "lines": colorLyricsResponseObj.lyrics.lines.map(line => line.words)
+                language: "zh",
+                lines: colorLyricsResponseObj.lyrics.lines.map(line => line.words)
                     .map(word => transMap.get(word) || word || '')
             }];
             const body = ColorLyricsResponse.toBinary(colorLyricsResponseObj);
