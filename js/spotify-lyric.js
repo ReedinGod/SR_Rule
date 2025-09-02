@@ -400,7 +400,7 @@ if (!colorLyricsResponseObj?.lyrics?.lines?.length) {
 const options = {
     apiKey: 'sk-zsooyiczhuuezogpqthqssmjwuqfytnfmcpjubitnftybhgz',
     model: 'Qwen/Qwen2.5-7B-Instruct',
-    baseUrl: 'https://api.siliconflow.cn/v1',
+    baseUrl: 'https://api.siliconflow.cn/v1/chat/completions',
 };
 
 // 解析 $argument
@@ -452,14 +452,14 @@ const requestBody = JSON.stringify({
 
 // 发送翻译请求
 $httpClient.post({
-    url: `${options.baseUrl}/chat/completions`,
+    url: `${options.baseUrl}`,
     headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${options.apiKey}`
     },
     body: requestBody
 }, (error, response, data) => {
-    console.log(`API Request: url=${options.baseUrl}/chat/completions, body=${requestBody}`);
+    console.log(`API Request: url=${options.baseUrl}, body=${requestBody}`);
     if (error) {
         console.log(`API Error: ${JSON.stringify(error)}`);
         $notify(notifyName, '', `请求错误: ${error.message || error}`);
