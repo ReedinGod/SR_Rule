@@ -1,0 +1,10 @@
+# NAME: Prodcust
+# AUTHOR: Reed
+# REPO: https://github.com/ReedinGod/SR_Rule/new/main/rules
+# UPDATED: 2025-09-05 09:04:47
+# HOST: 3
+# HOST-KEYWORD: 3
+# HOST-SUFFIX: 7
+# TOTAL: 13
+DOMAIN-SUFFIX,podcasts.apple.com
+DOMAIN-SUFFIX,bookkeeper.itunes.apple.com
