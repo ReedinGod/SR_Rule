@@ -3,9 +3,15 @@
 # REPO: https://github.com/ReedinGod/SR_Rule/new/main/rules
 # UPDATED: 2025-09-05 09:04:47
 # HOST: 3
-# HOST-KEYWORD: 3
-# HOST-SUFFIX: 7
-# TOTAL: 13
+# HOST-KEYWORD: 
+# HOST-SUFFIX: 
+# TOTAL: 
 DOMAIN-SUFFIX,podcasts.apple.com
 DOMAIN-SUFFIX,bookkeeper.itunes.apple.com
 DOMAIN-SUFFIX,tenor.com
+DOMAIN-SUFFIX,ca.iadsdk.apple.com
+DOMAIN-SUFFIX,xp.apple.com
+DOMAIN-SUFFIX,daf.xp.apple.com
+DOMAIN-SUFFIX,anchor.fm
+DOMAIN-SUFFIX,bag.itunes.apple.com
+DOMAIN-SUFFIX,v2ex.com
