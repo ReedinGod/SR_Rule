@@ -22,7 +22,7 @@ DOMAIN-SUFFIX,imgur.com
 DOMAIN-SUFFIX,wikimedia.org
 DOMAIN-SUFFIX,duckduckgo.com
 
-#以下拷贝自https://whatshub.top/rule/ProxyMedia.list
+#以下拷贝自https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list
 
 # Proxy
 DOMAIN-SUFFIX,500px.com
@@ -404,7 +404,7 @@ DOMAIN,assets2.xboxlive.com
 DOMAIN,az416426.vo.msecnd.net
 DOMAIN,az668014.vo.msecnd.net
 DOMAIN,github.global.ssl.fastly.net
-
+DOMAIN-KEYWORD,github
 # > Pinterest
 DOMAIN-SUFFIX,pinimg.com
 DOMAIN-KEYWORD,.pinterest.
@@ -497,7 +497,7 @@ DOMAIN-SUFFIX,go-to-library.sk
 DOMAIN-SUFFIX,singlelogin.re
 DOMAIN-SUFFIX,singlelogin.rs
 DOMAIN-SUFFIX,z-lib.gs
-DOMAIN-SUFFIX,z-library.rs
+DOMAIN-SUFFIX,z-library.sk
 
 # (Region-Restricted Access Denied)
 DOMAIN-SUFFIX,cnbeta.com.tw
