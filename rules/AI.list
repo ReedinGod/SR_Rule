@@ -20,4 +20,17 @@ HOST-SUFFIX,apis.google.com,Gemini
 HOST-KEYWORD,colab,Gemini
 HOST-KEYWORD,developerprofiles,Gemini
 HOST-KEYWORD,generativelanguage,Gemini
-HOST-KEYWORD,grok.com, Gemini
+# > xAI
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,periscope.tv
+DOMAIN-SUFFIX,pscp.tv
+DOMAIN-SUFFIX,t.co
+DOMAIN-SUFFIX,tweetdeck.com
+DOMAIN-SUFFIX,twimg.co
+DOMAIN-SUFFIX,twimg.com
+DOMAIN-SUFFIX,twitpic.com
+DOMAIN-SUFFIX,twitter.com
+DOMAIN-SUFFIX,twitter.jp
+DOMAIN-SUFFIX,vine.co
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,x.com
