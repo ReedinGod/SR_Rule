@@ -557,3 +557,4 @@ DOMAIN-SUFFIX,msn.com
 DOMAIN,copilot.microsoft.com
 # > Youtube
 DOMAIN-KEYWORD,youtube
+DOMAIN-SUFFIX,googlevideo.com
