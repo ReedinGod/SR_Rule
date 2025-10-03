@@ -556,7 +556,7 @@ HOST-SUFFIX,licdn.com
 HOST-SUFFIX,msn.com
 HOST,copilot.microsoft.com
 # > Youtube
-HOST-KEYWORD,youtube
+HOST-KEYWORD,.youtube.
 HOST-SUFFIX,googlevideo.com
 # > cnn
 HOST-KEYWORD,.cnn.
