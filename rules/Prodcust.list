@@ -555,3 +555,5 @@ DOMAIN-SUFFIX,linkedin.com
 DOMAIN-SUFFIX,licdn.com
 DOMAIN-SUFFIX,msn.com
 DOMAIN,copilot.microsoft.com
+# > Youtube
+DOMAIN-KEYWORD,youtube
