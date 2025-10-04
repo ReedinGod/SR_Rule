@@ -1,5 +1,5 @@
 import re
-from datetime import datetime，timedelta
+from datetime import datetime, timedelta
 
 def simplify_rule(file_path, output_path):
     with open(file_path, "r", encoding="utf-8") as f:
