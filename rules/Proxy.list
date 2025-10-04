@@ -1,8 +1,9 @@
 # 简化后的规则，自动去重分组
-# HOST: 0 | HOST-KEYWORD: 0 | HOST-SUFFIX: 1 | IP-CIDR: 0 | OTHER: 1 | TOTAL: 2
-# Last Update: 2025-10-04 17:23:24 UTC+8
+# HOST: 1 | HOST-KEYWORD: 0 | HOST-SUFFIX: 1 | IP-CIDR: 0 | OTHER: 1 | TOTAL: 3
+# Last Update: 2025-10-04 17:24:00 UTC+8
 
 # Apple
+HOST, .CNN.
 HOST-SUFFIX,bag.itunes.apple.com
 Host-KEYWORD, .apple.com
 
