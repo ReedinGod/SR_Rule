@@ -312,17 +312,6 @@ HOST-SUFFIX,googlevideo.com
 HOST-KEYWORD,.cnn.
 
 #---
-HOST-SUFFIX,tenor.com
-
-HOST-KEYWORD,.v2ex.
-HOST-SUFFIX,cineby.app
-HOST-SUFFIX,www.threads.com
-HOST-SUFFIX,greasyfork.org
-HOST-SUFFIX,imgur.com
-HOST-SUFFIX,wikimedia.org
-HOST-SUFFIX,duckduckgo.com
-
-#---
 HOST-SUFFIX,500px.com
 HOST-SUFFIX,9cache.com
 HOST-SUFFIX,9gag.com
@@ -555,3 +544,14 @@ HOST,cdn.statically.io
 HOST,lab.skk.moe
 HOST,ocsp.int-x3.letsencrypt.org
 HOST,search.arc.net
+#---
+HOST-SUFFIX,tenor.com
+HOST-KEYWORD,.v2ex.
+HOST-SUFFIX,cineby.app
+HOST-SUFFIX,www.threads.com
+HOST-SUFFIX,greasyfork.org
+HOST-SUFFIX,imgur.com
+HOST-SUFFIX,wikimedia.org
+HOST-SUFFIX,duckduckgo.com
+#---
+HOST-KEYWORD,.eff.org
