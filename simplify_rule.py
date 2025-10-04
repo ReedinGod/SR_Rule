@@ -56,4 +56,7 @@ def simplify_rule(file_path, output_path):
         for o in sorted(others): out.write(f"{o}\n")
 
 if __name__ == "__main__":
-    simplify_rule("rules/Prodcust.list", "rules/Prodcust.simplified.list")
+    try:
+        simplify_rule("rules/Prodcust.list", "rules/Prodcust.list")
+    except Exception as e:
+        print("SCRIPT ERROR:", e)
