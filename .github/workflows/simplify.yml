@@ -12,19 +12,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-          
+
       - name: Run simplify_rule.py
         run: python simplify_rule.py
-        
-      - name: Commit simplified rules
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add rules/Prodcust.simplified.list
-          git commit -m "Auto: update simplified rules"
-          git push
+
+      - name: Commit & push simplified rules
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: false
+          # Only add/commit if文件有变化
+          commit_message: "Auto: update simplified rules"
+          directory: .
