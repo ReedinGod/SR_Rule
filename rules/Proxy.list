@@ -1,6 +1,6 @@
 # 简化后的规则，自动去重分组
-# HOST: 52 | HOST-KEYWORD: 6 | HOST-SUFFIX: 415 | IP-CIDR: 13 | OTHER: 5 | TOTAL: 491
-# Last Update: 2025-10-04 09:00:06 UTC
+# HOST: 52 | HOST-KEYWORD: 7 | HOST-SUFFIX: 415 | IP-CIDR: 13 | OTHER: 5 | TOTAL: 492
+# Last Update: 2025-10-04 09:01:49 UTC
 
 # NAME: Prodcust
 
@@ -12,6 +12,7 @@ HOST,cdn.statically.io
 HOST,lab.skk.moe
 HOST,ocsp.int-x3.letsencrypt.org
 HOST,search.arc.net
+HOST-KEYWORD,.v2ex.
 HOST-SUFFIX,500px.com
 HOST-SUFFIX,9cache.com
 HOST-SUFFIX,9gag.com
@@ -542,7 +543,7 @@ HOST-SUFFIX,zoominfo.com
 HOST-SUFFIX,go.dev
 HOST-SUFFIX,golang.org
 
-# ---(Apple)---
+# > Apple
 HOST,amp-api.podcasts.apple.com // Podcasts
 HOST,apple-relay.apple.com // Apple Intelligence
 HOST,apple-relay.cloudflare.com
