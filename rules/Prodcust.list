@@ -22,9 +22,7 @@ HOST-SUFFIX,imgur.com
 HOST-SUFFIX,wikimedia.org
 HOST-SUFFIX,duckduckgo.com
 
-#以下拷贝自https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list
-
-# Proxy
+# > 以下拷贝自https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list
 HOST-SUFFIX,500px.com
 HOST-SUFFIX,9cache.com
 HOST-SUFFIX,9gag.com
