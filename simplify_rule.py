@@ -82,8 +82,8 @@ def simplify_rule(file_path, output_path, new_rules=[]):
             unique_lines.add(new_rule)
 
     total = sum(type_counts.values())
-    now = datetime.utcnow()
-    update_time = now.strftime('%Y-%m-%d %H:%M:%S UTC')
+    now = datetime.utcnow()+ timedelta(hours=8)
+    update_time = now.strftime('%Y-%m-%d %H:%M:%S UTC+8')
 
     # 输出
     with open(output_path, "w", encoding="utf-8") as out:
