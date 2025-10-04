@@ -1,6 +1,18 @@
 # 简化后的规则，自动去重分组
-# HOST: 52 | HOST-KEYWORD: 6 | HOST-SUFFIX: 414 | IP-CIDR: 13 | OTHER: 5 | TOTAL: 490
-# Last Update: 2025-10-04 08:40:10 UTC
+# HOST: 52 | HOST-KEYWORD: 6 | HOST-SUFFIX: 415 | IP-CIDR: 13 | OTHER: 5 | TOTAL: 491
+# Last Update: 2025-10-04 08:53:36 UTC
+
+# NAME: Prodcust
+
+# AUTHOR: Reed
+
+# REPO: https://github.com/ReedinGod/SR_Rule/new/main/rules
+
+# UPDATED: 2025-10-03 05:38:34
+
+# HOST: 3
+
+# HOST-KEYWORD:
 
 # HOST-SUFFIX:
 HOST-SUFFIX,anchor.fm
@@ -261,6 +273,8 @@ HOST,s3-ap-southeast-2.amazonaws.com
 HOST,s3.eu-central-1.amazonaws.com
 HOST-SUFFIX,amazon.co.jp
 
+# > Alphabet
+
 # HOST-SUFFIX,ampproject.org
 HOST-KEYWORD,.blogspot.
 HOST-SUFFIX,apigee.com
@@ -273,11 +287,14 @@ HOST-SUFFIX,xn--ngstr-lra8j.com
 
 # > Apple
 HOST,testflight.apple.com
+HOST-SUFFIX,bag.itunes.apple.com
 
 # > Automattic
 HOST-SUFFIX,gravatar.com
 HOST-SUFFIX,tumblr.com
 HOST-SUFFIX,videopress.com
+
+# HOST-SUFFIX,wordpress.com
 
 # > Bloomberg
 HOST-SUFFIX,bloomberg.cn
@@ -333,6 +350,8 @@ HOST-SUFFIX,ffbbbdc6d3c353211fe2ba39c9f744cd.com
 # > OKX
 HOST-SUFFIX,okx.com
 HOST-SUFFIX,okx.com.cdn.cloudflare.net
+
+# ------
 
 # > Discord
 HOST-SUFFIX,discord.com
@@ -431,6 +450,8 @@ HOST-SUFFIX,reutersmedia.net
 # > Steam
 HOST-SUFFIX,steamcommunity.com
 
+# HOST,store.steampowered.com
+
 # ---(Telegram)---
 HOST-SUFFIX,cdn-telegram.org
 HOST-SUFFIX,comments.app
@@ -461,6 +482,8 @@ IP-CIDR6,2001:b28:f23c::/48,no-resolve
 IP-CIDR6,2001:b28:f23d::/48,no-resolve
 IP-CIDR6,2001:b28:f23f::/48,no-resolve
 IP-CIDR6,2a0a:f280::/32,no-resolve
+
+# ------
 
 # > The Economist
 HOST-SUFFIX,economist.com
@@ -553,6 +576,8 @@ HOST,books.apple.com
 HOST,itunes.apple.com
 HOST,tv.apple.com
 
+# > News
+
 #HOST,gateway.icloud.com
 HOST,apple.comscoreresearch.com
 HOST,news-assets.apple.com
@@ -561,6 +586,8 @@ HOST,news-client.apple.com
 HOST,news-edge.apple.com
 HOST,news-events.apple.com
 HOST-SUFFIX,apple.news
+
+# ------
 
 # > Microsoft
 HOST,copilot.microsoft.com
