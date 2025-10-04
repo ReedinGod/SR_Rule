@@ -1,8 +1,8 @@
 # 简化后的规则，自动去重分组
 # HOST: 52 | HOST-KEYWORD: 6 | HOST-SUFFIX: 414 | IP-CIDR: 13 | OTHER: 5 | TOTAL: 490
-# Last Update: 2025-10-04 08:39:55 UTC
+# Last Update: 2025-10-04 08:40:10 UTC
 
-# HOST-SUFFIX
+# HOST-SUFFIX:
 HOST-SUFFIX,anchor.fm
 HOST-SUFFIX,bag.itunes.apple.com
 HOST-SUFFIX,bookkeeper.itunes.apple.com
