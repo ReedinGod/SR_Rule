@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'rules/Prodcust.list'
-      - 'py/simplify_rule.py'
+      - 'simplify_rule.py'
 
 jobs:
   run-simplify-rule:
