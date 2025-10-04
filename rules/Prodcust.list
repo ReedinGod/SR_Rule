@@ -1,3 +1,310 @@
-# Apple
-Host-KEYWORD, .apple.com
-HOST, .CNN.
+# > Akamai
+HOST,a248.e.akamai.net
+HOST,a771.dscq.akamai.net
+# > Amazon
+HOST-SUFFIX,amazon.co.jp
+HOST,d3c33hcgiwev3.cloudfront.net
+HOST,payments-jp.amazon.com
+HOST,s3-ap-northeast-1.amazonaws.com
+HOST,s3-ap-southeast-2.amazonaws.com
+HOST,s3-ap-southeast-1.amazonaws.com
+HOST,s3.eu-central-1.amazonaws.com
+# > Alphabet
+# HOST-SUFFIX,ampproject.org
+HOST-SUFFIX,apigee.com
+HOST-SUFFIX,appspot.com
+HOST-SUFFIX,blogger.com
+HOST-SUFFIX,gvt0.com
+HOST-SUFFIX,gvt1.com
+HOST-SUFFIX,gvt3.com
+HOST-SUFFIX,tenor.com
+HOST-SUFFIX,xn--ngstr-lra8j.com
+HOST-KEYWORD,.blogspot.
+# > Automattic
+HOST-SUFFIX,gravatar.com
+HOST-SUFFIX,tumblr.com
+HOST-SUFFIX,videopress.com
+# HOST-SUFFIX,wordpress.com
+# > Bloomberg
+HOST-SUFFIX,bloomberg.cn
+HOST-SUFFIX,bloomberg.com
+HOST-SUFFIX,bloomberg.de
+HOST-SUFFIX,bloombergview.com
+# > Cloudflare
+HOST-SUFFIX,pages.dev
+HOST-SUFFIX,workers.dev
+# > Clubhouse
+HOST-SUFFIX,clubhouseapi.com
+HOST-SUFFIX,joinclubhouse.com
+HOST,clubhouse.pubnubapi.com
+# ---(Crypto)---
+HOST-SUFFIX,bitcointalk.org
+HOST-SUFFIX,bitfinex.com
+HOST-SUFFIX,bitflyer.com
+HOST-SUFFIX,bitget.com
+HOST-SUFFIX,bithumb.com
+HOST-SUFFIX,bitstamp.net
+HOST-SUFFIX,coinbase.com
+HOST-SUFFIX,coingecko.com
+HOST-SUFFIX,coinmarketcap.com
+HOST-SUFFIX,crypto.com
+HOST-SUFFIX,dydx.exchange
+HOST-SUFFIX,etherscan.io
+HOST-SUFFIX,gate.io
+HOST-SUFFIX,gemini.com
+HOST-SUFFIX,kraken.com
+HOST-SUFFIX,kucoin.com
+HOST-SUFFIX,mexc.com
+HOST-SUFFIX,probit.com
+HOST-SUFFIX,uniswap.org
+HOST-SUFFIX,upbit.com
+# > Binane
+HOST-SUFFIX,binance.com
+HOST-SUFFIX,binance.info
+HOST-SUFFIX,bnbstatic.com
+HOST-SUFFIX,bntrace.com
+HOST-SUFFIX,yingwangtech.cloud
+# > Bybit
+HOST-SUFFIX,byabcde.com
+HOST-SUFFIX,bybdc6.com
+HOST-SUFFIX,bybit.com
+HOST-SUFFIX,bybitglobal.com
+HOST-SUFFIX,ffbbbdc6d3c353211fe2ba39c9f744cd.com
+# > OKX
+HOST-SUFFIX,okx.com
+HOST-SUFFIX,okx.com.cdn.cloudflare.net
+# ------
+# > Discord
+HOST-SUFFIX,discord.com
+HOST-SUFFIX,discordapp.com
+HOST-SUFFIX,discord.gg
+HOST-SUFFIX,discordapp.net
+# > Dropbox
+HOST-SUFFIX,dropbox.com
+HOST-SUFFIX,dropboxapi.com
+HOST-SUFFIX,dropboxusercontent.com
+# > Fastly
+HOST-SUFFIX,freetls.fastly.net
+HOST-SUFFIX,global.ssl.fastly.net
+# > Financial Times
+HOST-SUFFIX,ft.com
+HOST-SUFFIX,ftchinese.com
+HOST-SUFFIX,ftimg.net
+HOST,d1e00ek4ebabms.cloudfront.net
+HOST,d19eijqb5qll1w.cloudfront.net
+# > Line
+HOST-SUFFIX,line.me
+HOST-SUFFIX,line-apps.com
+HOST-SUFFIX,line-scdn.net
+HOST-SUFFIX,naver.jp
+IP-CIDR,103.2.30.0/23,no-resolve
+IP-CIDR,125.209.208.0/20,no-resolve
+IP-CIDR,147.92.128.0/17,no-resolve
+IP-CIDR,203.104.144.0/21,no-resolve
+# > Meta
+HOST-SUFFIX,accountkit.com
+HOST-SUFFIX,cdninstagram.com
+HOST-SUFFIX,f8.com
+HOST-SUFFIX,facebookmail.com
+HOST-SUFFIX,fb.com
+HOST-SUFFIX,fb.me
+HOST-SUFFIX,fb.watch
+HOST-SUFFIX,fbaddins.com
+HOST-SUFFIX,fbcdn.net
+HOST-SUFFIX,fbsbx.com
+HOST-SUFFIX,fbworkmail.com
+HOST-SUFFIX,instagram.com
+HOST-SUFFIX,m.me
+HOST-SUFFIX,messenger.com
+HOST-SUFFIX,meta.ai
+HOST-SUFFIX,meta.com
+HOST-SUFFIX,oculus.com
+HOST-SUFFIX,oculuscdn.com
+HOST-SUFFIX,readyatdawn.com
+HOST-SUFFIX,rocksdb.org
+HOST-SUFFIX,threads.net
+HOST-SUFFIX,whatsapp.com
+HOST-SUFFIX,whatsapp.net
+HOST-KEYWORD,.facebook.
+# > Microsoft
+HOST-SUFFIX,aka.ms
+HOST-SUFFIX,github.blog
+HOST-SUFFIX,github.com
+HOST-SUFFIX,github.io
+HOST-SUFFIX,githubassets.com
+HOST-SUFFIX,githubusercontent.com
+HOST-SUFFIX,onedrive.live.com
+HOST-SUFFIX,streaming.mediaservices.windows.net
+HOST,assets1.xboxlive.com
+HOST,assets2.xboxlive.com
+HOST,az416426.vo.msecnd.net
+HOST,az668014.vo.msecnd.net
+HOST,github.global.ssl.fastly.net
+HOST-KEYWORD,github
+# > Pinterest
+HOST-SUFFIX,pinimg.com
+HOST-KEYWORD,.pinterest.
+# > pixiv
+HOST-SUFFIX,pixiv.net
+HOST-SUFFIX,pixiv.org
+HOST-SUFFIX,pixivsketch.net
+HOST-SUFFIX,pximg.net
+# > Reddit
+HOST-SUFFIX,redd.it
+HOST-SUFFIX,reddit.com
+HOST-SUFFIX,redditmedia.com
+HOST-SUFFIX,redditstatic.com
+# > Reuters
+HOST-SUFFIX,reuters.com
+HOST-SUFFIX,reutersmedia.net
+# > Steam
+HOST-SUFFIX,steamcommunity.com
+# HOST,store.steampowered.com
+# ---(Telegram)---
+HOST-SUFFIX,cdn-telegram.org
+HOST-SUFFIX,comments.app
+HOST-SUFFIX,graph.org
+HOST-SUFFIX,legra.ph
+HOST-SUFFIX,quiz.directory
+HOST-SUFFIX,t.me
+HOST-SUFFIX,tdesktop.com
+HOST-SUFFIX,telegra.ph
+HOST-SUFFIX,telegram.dog
+HOST-SUFFIX,telegram.me
+HOST-SUFFIX,telegram.org
+HOST-SUFFIX,telegram.space
+HOST-SUFFIX,telegram-cdn.org
+HOST-SUFFIX,telesco.pe
+HOST-SUFFIX,tg.dev
+IP-CIDR,91.108.56.0/22,no-resolve
+IP-CIDR,91.108.4.0/22,no-resolve
+IP-CIDR,91.108.8.0/22,no-resolve
+IP-CIDR,91.108.16.0/22,no-resolve
+IP-CIDR,91.108.12.0/22,no-resolve
+IP-CIDR,149.154.160.0/20,no-resolve
+IP-CIDR,91.105.192.0/23,no-resolve
+IP-CIDR,91.108.20.0/22,no-resolve
+IP-CIDR,185.76.151.0/24,no-resolve
+IP-CIDR6,2001:b28:f23d::/48,no-resolve
+IP-CIDR6,2001:b28:f23f::/48,no-resolve
+IP-CIDR6,2001:67c:4e8::/48,no-resolve
+IP-CIDR6,2001:b28:f23c::/48,no-resolve
+IP-CIDR6,2a0a:f280::/32,no-resolve
+# ------
+# > The Economist
+HOST-SUFFIX,economist.com
+HOST-SUFFIX,static-economist.com
+# > The New York Times
+HOST-SUFFIX,newyorktimes.com
+HOST-SUFFIX,nyt.com
+HOST-SUFFIX,nytco.com
+HOST-SUFFIX,nytimes.com
+HOST-SUFFIX,nytimg.com
+HOST-SUFFIX,nytlog.com
+HOST-SUFFIX,nytstyle.com
+HOST-SUFFIX,tmagazine.com
+HOST,nytimes.map.fastly.net
+# > Wikimedia Foundation
+HOST-SUFFIX,mediawiki.org
+HOST-SUFFIX,wikibooks.org
+HOST-SUFFIX,wikidata.org
+HOST-SUFFIX,wikileaks.org
+HOST-SUFFIX,wikimedia.org
+HOST-SUFFIX,wikimediafoundation.org
+HOST-SUFFIX,wikinews.org
+HOST-SUFFIX,wikipedia.org
+HOST-SUFFIX,wikiquote.org
+HOST-SUFFIX,wikisource.org
+HOST-SUFFIX,wikiversity.org
+HOST-SUFFIX,wikivoyage.org
+HOST-SUFFIX,wiktionary.org
+
+# > Yahoo
+HOST-SUFFIX,yahoo.com
+HOST-SUFFIX,yimg.com
+HOST,search.yahoo.co.jp
+# > Yandex
+HOST-SUFFIX,yadi.sk
+HOST-SUFFIX,yandex.ru
+HOST,disk.yandex.com
+# > Z-Library
+HOST-SUFFIX,articles.sk
+HOST-SUFFIX,go-to-library.sk
+HOST-SUFFIX,singlelogin.re
+HOST-SUFFIX,singlelogin.rs
+HOST-SUFFIX,z-lib.gs
+HOST-SUFFIX,z-library.sk
+
+# (Region-Restricted Access Denied)
+HOST-SUFFIX,cnbeta.com.tw
+HOST-SUFFIX,engadget.com
+HOST-SUFFIX,ifixit.com
+HOST-SUFFIX,terabox.com
+HOST-SUFFIX,wowhead.com
+HOST-SUFFIX,wunderground.com
+HOST-SUFFIX,xiaomi.eu
+HOST-SUFFIX,zaobao.com.sg
+HOST-SUFFIX,zoominfo.com
+
+HOST-SUFFIX,zoom.us
+HOST,addons.mozilla.org
+HOST,community.oneplus.com
+HOST,login.alibaba.com
+HOST,wego.here.com
+
+# > Alphabet
+HOST-SUFFIX,go.dev
+HOST-SUFFIX,golang.org
+
+# > Mi
+HOST,c.mi.com
+HOST,new.c.mi.com
+
+# > Apple
+HOST-SUFFIX,appsto.re // Apple URL Shortener
+HOST-SUFFIX,smoot.apple.com // Spotlight
+HOST,amp-api.podcasts.apple.com // Podcasts
+HOST,beta.music.apple.com // Apple Music Web
+HOST,books.itunes.apple.com // iBooks Store download
+HOST,facetime.apple.com // FaceTime Links
+HOST,lookup-api.apple.com // Look Up
+HOST,radio.itunes.apple.com // Apple Music Radio
+HOST,apple-relay.apple.com // Apple Intelligence
+HOST,apple-relay.cloudflare.com
+HOST,apple-relay.fastly-edge.com
+HOST,cp4.cloudflare.com
+HOST-SUFFIX,bookkeeper.itunes.apple.com
+HOST,testflight.apple.com
+# > Web Preview
+HOST,apps.apple.com
+HOST,books.apple.com
+HOST,itunes.apple.com
+HOST,tv.apple.com
+# > News
+#HOST,gateway.icloud.com
+HOST-SUFFIX,apple.news
+HOST,news-assets.apple.com
+HOST,news-client.apple.com
+HOST,news-client-search.apple.com
+HOST,news-edge.apple.com
+HOST,news-events.apple.com
+HOST,apple.comscoreresearch.com
+HOST-SUFFIX,ca.iadsdk.apple.com
+HOST-SUFFIX,xp.apple.com
+HOST-SUFFIX,daf.xp.apple.com
+# > Podcast
+HOST-SUFFIX,anchor.fm
+HOST-SUFFIX,bag.itunes.apple.com
+HOST-SUFFIX,podcasts.apple.com
+# ------
+# > Microsoft
+HOST-SUFFIX,bing.com
+HOST-SUFFIX,linkedin.com
+HOST-SUFFIX,licdn.com
+HOST-SUFFIX,msn.com
+HOST,copilot.microsoft.com
+# > Youtube
+HOST-KEYWORD,.youtube.
+HOST-SUFFIX,googlevideo.com
+# > cnn
+HOST-KEYWORD,.cnn.
