@@ -9,7 +9,7 @@ HOST-SUFFIX,xp.apple.com
 HOST-SUFFIX,daf.xp.apple.com
 HOST-SUFFIX,anchor.fm
 HOST-SUFFIX,bag.itunes.apple.com
-HOST-SUFFIX,v2ex.com
+HOST-KEYWORD,.v2ex.
 HOST-SUFFIX,cineby.app
 HOST-SUFFIX,www.threads.com
 HOST-SUFFIX,greasyfork.org
@@ -507,7 +507,7 @@ HOST,wego.here.com
 # > Alphabet
 HOST-SUFFIX,go.dev
 HOST-SUFFIX,golang.org
-# ---(Apple)---
+# > Apple
 HOST-SUFFIX,appsto.re // Apple URL Shortener
 HOST-SUFFIX,smoot.apple.com // Spotlight
 HOST,amp-api.podcasts.apple.com // Podcasts
