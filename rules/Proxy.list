@@ -1,6 +1,6 @@
 # 简化后的规则，自动去重分组
-# HOST: 52 | HOST-KEYWORD: 8 | HOST-SUFFIX: 414 | IP-CIDR: 13 | 其他: 5 | TOTAL: 492
-# Last Update: 2025-10-05 06:27:39 UTC+8
+# HOST: 52 | HOST-KEYWORD: 9 | HOST-SUFFIX: 414 | IP-CIDR: 13 | 其他: 5 | TOTAL: 493
+# Last Update: 2025-10-05 19:31:45 UTC+8
 
 # HOST
 HOST,a248.e.akamai.net
@@ -57,9 +57,10 @@ HOST,tv.apple.com
 HOST,wego.here.com
 
 # HOST-KEYWORD
+HOST-KEYWORD, bolls.life
+HOST-KEYWORD, eff.org
 HOST-KEYWORD,.blogspot.
 HOST-KEYWORD,.cnn.
-HOST-KEYWORD,.eff.org
 HOST-KEYWORD,.facebook.
 HOST-KEYWORD,.pinterest.
 HOST-KEYWORD,.v2ex.
