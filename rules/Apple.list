@@ -51,6 +51,6 @@ PROCESS-NAME,com.apple.geod
 PROCESS-NAME,Music
 PROCESS-NAME,LookupViewService
 PROCESS-NAME,TV
-> AppStore
+# > AppStore
 HOST,apps.apple.com
 HOST,itunes.apple.com
