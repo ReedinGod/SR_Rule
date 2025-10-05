@@ -554,4 +554,5 @@ HOST-SUFFIX,imgur.com
 HOST-SUFFIX,wikimedia.org
 HOST-SUFFIX,duckduckgo.com
 #---
-HOST-KEYWORD,.eff.org
+HOST-KEYWORD, eff.org
+HOST-KEYWORD, bolls.life
