@@ -1,6 +1,6 @@
 # 简化后的规则，自动去重分组
-# HOST: 52 | HOST-KEYWORD: 9 | HOST-SUFFIX: 414 | IP-CIDR: 13 | 其他: 5 | TOTAL: 493
-# Last Update: 2025-10-05 19:31:45 UTC+8
+# HOST: 52 | HOST-KEYWORD: 10 | HOST-SUFFIX: 444 | IP-CIDR: 13 | 其他: 5 | TOTAL: 524
+# Last Update: 2025-10-05 19:43:52 UTC+8
 
 # HOST
 HOST,a248.e.akamai.net
@@ -66,6 +66,7 @@ HOST-KEYWORD,.pinterest.
 HOST-KEYWORD,.v2ex.
 HOST-KEYWORD,.youtube.
 HOST-KEYWORD,github
+HOST-KEYWORD,github,GitHub
 
 # HOST-SUFFIX
 HOST-SUFFIX,500px.com
@@ -91,6 +92,7 @@ HOST-SUFFIX,archiveofourown.org
 HOST-SUFFIX,articles.sk
 HOST-SUFFIX,artstation.com
 HOST-SUFFIX,ask.com
+HOST-SUFFIX,atom.io,GitHub
 HOST-SUFFIX,avg.com
 HOST-SUFFIX,axios.com
 HOST-SUFFIX,bag.itunes.apple.com
@@ -157,6 +159,7 @@ HOST-SUFFIX,dailymotion.com
 HOST-SUFFIX,dashlane.com
 HOST-SUFFIX,daum.net
 HOST-SUFFIX,deadline.com
+HOST-SUFFIX,dependabot.com,GitHub
 HOST-SUFFIX,depositphotos.com
 HOST-SUFFIX,deviantart.com
 HOST-SUFFIX,deviantart.net
@@ -211,13 +214,32 @@ HOST-SUFFIX,generated.photos
 HOST-SUFFIX,genius.com
 HOST-SUFFIX,getsync.com
 HOST-SUFFIX,gfw.report
+HOST-SUFFIX,ghcr.io,GitHub
 HOST-SUFFIX,git.io
+HOST-SUFFIX,git.io,GitHub
 HOST-SUFFIX,githack.com
+HOST-SUFFIX,github-atom-io-herokuapp-com.freetls.fastly.net,GitHub
+HOST-SUFFIX,github-avatars.oss-cn-hongkong.aliyuncs.com,GitHub
+HOST-SUFFIX,github-cloud.s3.amazonaws.com,GitHub
 HOST-SUFFIX,github.blog
+HOST-SUFFIX,github.blog,GitHub
 HOST-SUFFIX,github.com
+HOST-SUFFIX,github.com,GitHub
+HOST-SUFFIX,github.community,GitHub
+HOST-SUFFIX,github.dev,GitHub
 HOST-SUFFIX,github.io
+HOST-SUFFIX,github.io,GitHub
+HOST-SUFFIX,githubapp.com,GitHub
 HOST-SUFFIX,githubassets.com
+HOST-SUFFIX,githubassets.com,GitHub
+HOST-SUFFIX,githubcopilot.com,GitHub
+HOST-SUFFIX,githubhackathon.com,GitHub
+HOST-SUFFIX,githubnext.com,GitHub
+HOST-SUFFIX,githubpreview.dev,GitHub
+HOST-SUFFIX,githubstatus.com,GitHub
+HOST-SUFFIX,githubuniverse.com,GitHub
 HOST-SUFFIX,githubusercontent.com
+HOST-SUFFIX,githubusercontent.com,GitHub
 HOST-SUFFIX,glarity.app
 HOST-SUFFIX,global.ssl.fastly.net
 HOST-SUFFIX,go-to-library.sk
@@ -286,6 +308,7 @@ HOST-SUFFIX,monica.im
 HOST-SUFFIX,moon.fm
 HOST-SUFFIX,msn.com
 HOST-SUFFIX,mubi.com
+HOST-SUFFIX,myoctocat.com,GitHub
 HOST-SUFFIX,myspace.com
 HOST-SUFFIX,myspacecdn.com
 HOST-SUFFIX,naver.jp
@@ -297,6 +320,9 @@ HOST-SUFFIX,newsweek.com
 HOST-SUFFIX,newyorker.com
 HOST-SUFFIX,newyorktimes.com
 HOST-SUFFIX,now.com
+HOST-SUFFIX,npm.community,GitHub
+HOST-SUFFIX,npmjs.com,GitHub
+HOST-SUFFIX,npmjs.org,GitHub
 HOST-SUFFIX,nyt.com
 HOST-SUFFIX,nytco.com
 HOST-SUFFIX,nytimes.com
@@ -310,6 +336,7 @@ HOST-SUFFIX,okx.com
 HOST-SUFFIX,okx.com.cdn.cloudflare.net
 HOST-SUFFIX,omny.fm
 HOST-SUFFIX,onedrive.live.com
+HOST-SUFFIX,opensource.guide,GitHub
 HOST-SUFFIX,openvpn.net
 HOST-SUFFIX,owltail.com
 HOST-SUFFIX,oxfordscholarship.com
@@ -341,6 +368,8 @@ HOST-SUFFIX,quora.com
 HOST-SUFFIX,quoracdn.net
 HOST-SUFFIX,qz.com
 HOST-SUFFIX,radioline.co
+HOST-SUFFIX,rawgit.com,GitHub
+HOST-SUFFIX,rawgithub.com,GitHub
 HOST-SUFFIX,reabble.com
 HOST-SUFFIX,readyatdawn.com
 HOST-SUFFIX,redd.it
@@ -348,6 +377,7 @@ HOST-SUFFIX,reddit.com
 HOST-SUFFIX,redditlist.com
 HOST-SUFFIX,redditmedia.com
 HOST-SUFFIX,redditstatic.com
+HOST-SUFFIX,repo.new,GitHub
 HOST-SUFFIX,resilio.com
 HOST-SUFFIX,reuters.com
 HOST-SUFFIX,reutersmedia.net
@@ -400,6 +430,7 @@ HOST-SUFFIX,theatlantic.com
 HOST-SUFFIX,theaustralian.com.au
 HOST-SUFFIX,theconversation.com
 HOST-SUFFIX,thediplomat.com
+HOST-SUFFIX,thegithubshop.com,GitHub
 HOST-SUFFIX,theguardian.com
 HOST-SUFFIX,theinitium.com
 HOST-SUFFIX,themoviedb.org
