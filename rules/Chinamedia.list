@@ -1,7 +1,6 @@
 # >> ipeo不为CN，但需要走cn流量的
 # 如果你的服务器需要代理访问 (将 example.com 替换为你的服务器域名)
-HOST, hongxingyunmovie.vip, emby
-# 其他 Emby 官方服务，通常可直连，如有问题再改为代理
+
 HOST-SUFFIX, www2.deepl.com
 HOST-SUFFIX, sdkapp.uve.weibo.com
 HOST-SUFFIX, 12306.cn
