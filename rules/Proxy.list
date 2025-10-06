@@ -1,6 +1,6 @@
 # 简化后的规则，自动去重分组
-# HOST: 52 | HOST-KEYWORD: 10 | HOST-SUFFIX: 444 | IP-CIDR: 1134 | 其他: 250 | TOTAL: 1890
-# Last Update: 2025-10-05 19:55:01 UTC+8
+# HOST: 52 | HOST-KEYWORD: 10 | HOST-SUFFIX: 445 | IP-CIDR: 1134 | 其他: 250 | TOTAL: 1891
+# Last Update: 2025-10-07 07:14:58 UTC+8
 
 # HOST
 HOST,a248.e.akamai.net
@@ -69,6 +69,7 @@ HOST-KEYWORD,github
 HOST-KEYWORD,github,GitHub
 
 # HOST-SUFFIX
+HOST-SUFFIX, elevenlabs.io
 HOST-SUFFIX,500px.com
 HOST-SUFFIX,9cache.com
 HOST-SUFFIX,9gag.com
