@@ -1,59 +1,37 @@
 # 简化后的规则，自动去重分组
-# HOST: 52 | HOST-KEYWORD: 10 | HOST-SUFFIX: 445 | IP-CIDR: 1134 | 其他: 250 | TOTAL: 1891
-# Last Update: 2025-10-07 21:07:00 UTC+8
+# HOST: 30 | HOST-KEYWORD: 10 | HOST-SUFFIX: 432 | IP-CIDR: 1134 | 其他: 250 | TOTAL: 1856
+# Last Update: 2025-10-08 06:37:05 UTC+8
 
 # HOST
 HOST,a248.e.akamai.net
 HOST,a771.dscq.akamai.net
 HOST,addons.mozilla.org
-HOST,amp-api.podcasts.apple.com // Podcasts
-HOST,apple-relay.apple.com // Apple Intelligence
-HOST,apple-relay.cloudflare.com
-HOST,apple-relay.fastly-edge.com
-HOST,apple.comscoreresearch.com
-HOST,apps.apple.com
 HOST,assets1.xboxlive.com
 HOST,assets2.xboxlive.com
 HOST,az416426.vo.msecnd.net
 HOST,az668014.vo.msecnd.net
-HOST,beta.music.apple.com // Apple Music Web
-HOST,books.apple.com
-HOST,books.itunes.apple.com // iBooks Store download
 HOST,c.mi.com
 HOST,cdn.jsdelivr.net
 HOST,cdn.statically.io
 HOST,clubhouse.pubnubapi.com
 HOST,community.oneplus.com
-HOST,copilot.microsoft.com
-HOST,cp4.cloudflare.com
 HOST,d19eijqb5qll1w.cloudfront.net
 HOST,d1e00ek4ebabms.cloudfront.net
 HOST,d3c33hcgiwev3.cloudfront.net
 HOST,disk.yandex.com
-HOST,facetime.apple.com // FaceTime Links
 HOST,github.global.ssl.fastly.net
-HOST,itunes.apple.com
 HOST,lab.skk.moe
 HOST,login.alibaba.com
-HOST,lookup-api.apple.com // Look Up
 HOST,new.c.mi.com
-HOST,news-assets.apple.com
-HOST,news-client-search.apple.com
-HOST,news-client.apple.com
-HOST,news-edge.apple.com
-HOST,news-events.apple.com
 HOST,nytimes.map.fastly.net
 HOST,ocsp.int-x3.letsencrypt.org
 HOST,payments-jp.amazon.com
-HOST,radio.itunes.apple.com // Apple Music Radio
 HOST,s3-ap-northeast-1.amazonaws.com
 HOST,s3-ap-southeast-1.amazonaws.com
 HOST,s3-ap-southeast-2.amazonaws.com
 HOST,s3.eu-central-1.amazonaws.com
 HOST,search.arc.net
 HOST,search.yahoo.co.jp
-HOST,testflight.apple.com
-HOST,tv.apple.com
 HOST,wego.here.com
 
 # HOST-KEYWORD
@@ -84,9 +62,7 @@ HOST-SUFFIX,aomedia.org
 HOST-SUFFIX,apigee.com
 HOST-SUFFIX,apkmirror.com
 HOST-SUFFIX,apkpure.com
-HOST-SUFFIX,apple.news
 HOST-SUFFIX,appspot.com
-HOST-SUFFIX,appsto.re // Apple URL Shortener
 HOST-SUFFIX,archive.md
 HOST-SUFFIX,archive.org
 HOST-SUFFIX,archiveofourown.org
@@ -96,14 +72,12 @@ HOST-SUFFIX,ask.com
 HOST-SUFFIX,atom.io,GitHub
 HOST-SUFFIX,avg.com
 HOST-SUFFIX,axios.com
-HOST-SUFFIX,bag.itunes.apple.com
 HOST-SUFFIX,bandcamp.com
 HOST-SUFFIX,bandwagonhost.com
 HOST-SUFFIX,bbc.com
 HOST-SUFFIX,behance.net
 HOST-SUFFIX,binance.com
 HOST-SUFFIX,binance.info
-HOST-SUFFIX,bing.com
 HOST-SUFFIX,bit.ly
 HOST-SUFFIX,bitcointalk.org
 HOST-SUFFIX,bitfinex.com
@@ -120,7 +94,6 @@ HOST-SUFFIX,bloombergview.com
 HOST-SUFFIX,blubrry.com
 HOST-SUFFIX,bnbstatic.com
 HOST-SUFFIX,bntrace.com
-HOST-SUFFIX,bookkeeper.itunes.apple.com
 HOST-SUFFIX,box.com
 HOST-SUFFIX,brave.com
 HOST-SUFFIX,bsky.app
@@ -132,7 +105,6 @@ HOST-SUFFIX,bybdc6.com
 HOST-SUFFIX,bybit.com
 HOST-SUFFIX,bybitglobal.com
 HOST-SUFFIX,c-span.org
-HOST-SUFFIX,ca.iadsdk.apple.com
 HOST-SUFFIX,cachefly.com
 HOST-SUFFIX,cachefly.net
 HOST-SUFFIX,castbox.fm
@@ -155,7 +127,6 @@ HOST-SUFFIX,conoha.jp
 HOST-SUFFIX,coursehero.com
 HOST-SUFFIX,crypto.com
 HOST-SUFFIX,cutout.pro
-HOST-SUFFIX,daf.xp.apple.com
 HOST-SUFFIX,dailymotion.com
 HOST-SUFFIX,dashlane.com
 HOST-SUFFIX,daum.net
@@ -283,11 +254,9 @@ HOST-SUFFIX,kobo.com
 HOST-SUFFIX,kraken.com
 HOST-SUFFIX,kucoin.com
 HOST-SUFFIX,legra.ph
-HOST-SUFFIX,licdn.com
 HOST-SUFFIX,line-apps.com
 HOST-SUFFIX,line-scdn.net
 HOST-SUFFIX,line.me
-HOST-SUFFIX,linkedin.com
 HOST-SUFFIX,listennotes.com
 HOST-SUFFIX,livestream.com
 HOST-SUFFIX,m.me
@@ -307,7 +276,6 @@ HOST-SUFFIX,mixlr.com
 HOST-SUFFIX,mod.io
 HOST-SUFFIX,monica.im
 HOST-SUFFIX,moon.fm
-HOST-SUFFIX,msn.com
 HOST-SUFFIX,mubi.com
 HOST-SUFFIX,myoctocat.com,GitHub
 HOST-SUFFIX,myspace.com
@@ -355,7 +323,6 @@ HOST-SUFFIX,pixiv.org
 HOST-SUFFIX,pixivsketch.net
 HOST-SUFFIX,player.fm
 HOST-SUFFIX,podbean.com
-HOST-SUFFIX,podcasts.apple.com
 HOST-SUFFIX,poe.com
 HOST-SUFFIX,prism-break.org
 HOST-SUFFIX,privoxy.org
@@ -398,7 +365,6 @@ HOST-SUFFIX,slideshare.net
 HOST-SUFFIX,sm.ms
 HOST-SUFFIX,smartmailcloud.com
 HOST-SUFFIX,smh.com.au
-HOST-SUFFIX,smoot.apple.com // Spotlight
 HOST-SUFFIX,speakerdeck.com
 HOST-SUFFIX,spideroak.com
 HOST-SUFFIX,spiegel.de
@@ -495,7 +461,6 @@ HOST-SUFFIX,www.threads.com
 HOST-SUFFIX,x.co
 HOST-SUFFIX,xiaomi.eu
 HOST-SUFFIX,xn--ngstr-lra8j.com
-HOST-SUFFIX,xp.apple.com
 HOST-SUFFIX,yadi.sk
 HOST-SUFFIX,yahoo.com
 HOST-SUFFIX,yandex.ru
