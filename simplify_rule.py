@@ -57,7 +57,4 @@ def simplify_rule(file_path, output_path):
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) >= 3:
         simplify_rule(sys.argv[1], sys.argv[2])
-    else:
-        simplify_rule("rules/Prodcust.list", "rules/Proxy.list")
