@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Run simplify_rule.py
+      - name: Simplify prodcust.list
         run: python simplify_rule.py
 
       - name: Simplify reject.list
@@ -29,5 +29,6 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add rules/Proxy.list
+          git add rules/AdBlock.list
           git commit -m "Auto: update simplified rules" || echo "No changes"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
