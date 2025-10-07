@@ -20,7 +20,7 @@ jobs:
           python-version: '3.x'
 
       - name: Simplify prodcust.list
-        run: python simplify_rule.py
+        run: python simplify_rule.py rules/Prodcust.list rules/Proxy.list
 
       - name: Simplify reject.list
         run: python simplify_rule.py rules/reject.list rules/AdBlock.list
