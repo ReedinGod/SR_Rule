@@ -1,0 +1,37 @@
+# > --- Apple ---
+HOST-SUFFIX,appsto.re // Apple URL Shortener
+HOST-SUFFIX,smoot.apple.com // Spotlight
+HOST,amp-api.podcasts.apple.com // Podcasts
+HOST,beta.music.apple.com // Apple Music Web
+HOST,books.itunes.apple.com // iBooks Store download
+HOST,facetime.apple.com // FaceTime Links
+HOST,lookup-api.apple.com // Look Up
+HOST,radio.itunes.apple.com // Apple Music Radio
+HOST,apple-relay.apple.com // Apple Intelligence
+HOST,apple-relay.cloudflare.com
+HOST,apple-relay.fastly-edge.com
+HOST,cp4.cloudflare.com
+HOST-SUFFIX,bookkeeper.itunes.apple.com
+HOST,testflight.apple.com
+# > Web Preview
+HOST,apps.apple.com
+HOST,books.apple.com
+HOST,itunes.apple.com
+HOST,tv.apple.com
+# > News
+#HOST,gateway.icloud.com
+HOST-SUFFIX,apple.news
+HOST,news-assets.apple.com
+HOST,news-client.apple.com
+HOST,news-client-search.apple.com
+HOST,news-edge.apple.com
+HOST,news-events.apple.com
+HOST,apple.comscoreresearch.com
+HOST-SUFFIX,ca.iadsdk.apple.com
+HOST-SUFFIX,xp.apple.com
+HOST-SUFFIX,daf.xp.apple.com
+# > Podcast
+HOST-SUFFIX,anchor.fm
+HOST-SUFFIX,bag.itunes.apple.com
+HOST-SUFFIX,podcasts.apple.com
+# ------
