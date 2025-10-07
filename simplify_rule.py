@@ -55,4 +55,4 @@ def simplify_rule(input_files, output_path):
 
 if __name__ == "__main__":
     import sys
-        simplify_rule(sys.argv[1], sys.argv[2])
+    simplify_rule(sys.argv[1], sys.argv[2])
