@@ -21,6 +21,9 @@ jobs:
       - name: Run simplify_rule.py
         run: python simplify_rule.py
 
+      - name: Simplify reject.list
+        run: python simplify_rule.py rules/reject.list rules/AdBlock.list
+
       - name: Commit and push simplified rules
         run: |
           git config --global user.name "github-actions"
