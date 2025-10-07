@@ -56,5 +56,8 @@ def simplify_rule(file_path, output_path):
         for o in sorted(others): out.write(f"{o}\n")
 
 if __name__ == "__main__":
-    simplify_rule("rules/Prodcust.list", "rules/Proxy.list")
-    simplify_rule("rules/reject.list", "rules/AdBlock.list")
+    import sys
+    if len(sys.argv) >= 3:
+        simplify_rule(sys.argv[1], sys.argv[2])
+    else:
+        simplify_rule("rules/Prodcust.list", "rules/Prodcust.simplified.list")
