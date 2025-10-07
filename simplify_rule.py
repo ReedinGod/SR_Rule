@@ -55,4 +55,10 @@ def simplify_rule(input_files, output_path):
 
 if __name__ == "__main__":
     import sys
-    simplify_rule(sys.argv[1], sys.argv[2])
+    if len(sys.argv) >= 3:
+        # 支持多个输入文件：前面所有参数都是输入，最后一个为输出
+        input_files = sys.argv[1:-1]
+        output_file = sys.argv[-1]
+        simplify_rule(input_files, output_file)
+    else:
+        print("Usage: python simplify_rule.py [input_file1] [input_file2] ... [output_file]")
