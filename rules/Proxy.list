@@ -1,6 +1,6 @@
-# 简化后的规则，自动去重分组
+# 合并简化后的规则，自动去重分组
 # HOST: 30 | HOST-KEYWORD: 10 | HOST-SUFFIX: 432 | IP-CIDR: 1134 | 其他: 250 | TOTAL: 1856
-# Last Update: 2025-10-08 06:37:05 UTC+8
+# Last Update: 2025-10-08 06:50:20 北京时间
 
 # HOST
 HOST,a248.e.akamai.net
