@@ -60,4 +60,4 @@ if __name__ == "__main__":
     if len(sys.argv) >= 3:
         simplify_rule(sys.argv[1], sys.argv[2])
     else:
-        simplify_rule("rules/Prodcust.list", "rules/Prodcust.simplified.list")
+        simplify_rule("rules/Prodcust.list", "rules/Proxy.list")
