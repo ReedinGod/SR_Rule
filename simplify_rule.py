@@ -57,3 +57,4 @@ def simplify_rule(file_path, output_path):
 
 if __name__ == "__main__":
     simplify_rule("rules/Prodcust.list", "rules/Proxy.list")
+    simplify_rule("rules/reject.list", "rules/AdBlock.list")
