@@ -5,6 +5,7 @@ on:
     paths:
       - 'rules/Prodcust.list'
       - 'simplify_rule.py'
+      - 'rules/reject.list'
 
 jobs:
   run-simplify-rule:
