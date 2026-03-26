@@ -5,6 +5,7 @@ HOST-KEYWORD,buy.itunes.apple.com
 HOST-KEYWORD,smp-device
 HOST-KEYWORD,testflight
 HOST-KEYWORD,icloud.com.akadns.net
+HOST-KEYWORD,push.apple.com
 IP-CIDR,139.178.128.0/18,no-resolve
 IP-CIDR,144.178.0.0/19,no-resolve
 IP-CIDR,144.178.36.0/22,no-resolve
