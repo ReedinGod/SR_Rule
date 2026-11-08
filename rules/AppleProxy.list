@@ -19,17 +19,22 @@ HOST,books.apple.com
 HOST,itunes.apple.com
 HOST,tv.apple.com
 # > News
-#HOST,gateway.icloud.com
-HOST-SUFFIX,apple.news
-HOST,news-assets.apple.com
-HOST,news-client.apple.com
-HOST,news-client-search.apple.com
-HOST,news-edge.apple.com
-HOST,news-events.apple.com
+
 HOST,apple.comscoreresearch.com
 HOST-SUFFIX,ca.iadsdk.apple.com
 HOST-SUFFIX,xp.apple.com
 HOST-SUFFIX,daf.xp.apple.com
+# Apple News 核心域名
+HOST-SUFFIX,apple.news
+HOST-SUFFIX,apple.com
+HOST-KEYWORD,apple.com.akadns.net
+HOST-KEYWORD,news-assets.apple.com
+HOST-KEYWORD,news-client.apple.com
+HOST-KEYWORD,news-edge.apple.com
+HOST-KEYWORD,news-events.apple.com
+
+# 相关依赖服务
+HOST,gateway.icloud.com
 # > Podcast
 HOST-SUFFIX,anchor.fm
 HOST-SUFFIX,bag.itunes.apple.com
